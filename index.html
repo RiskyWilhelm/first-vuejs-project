@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://unpkg.com/vue@3.0.2"></script>
+  <style>
+    /* Mouse Events .rectangle{
+      width: 400px;
+      padding: 100px 0;
+      text-align: center;
+      background-color: rgb(156, 206, 206);
+      margin: 20px;
+      display: inline-block;
+    } */
+    body{
+      background-color: rgb(30, 34, 43);
+      max-width: 1400px;
+      margin: 20px auto;
+      color: white;
+    }
+    
+    p, h3, ul{
+      margin: 0;
+      padding: 0;
+    }
+
+    li{
+      list-style-type:none;
+      background-color: rgb(35, 46, 58);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 20px auto;
+      padding: 10px 20px;
+      border-radius: 10px;
+    }
+
+    li.fav{
+      /* background-color: rgb(45, 54, 70); */
+      background-color: rgb(57, 91, 100)
+    }
+
+    .imagecontainer{
+      max-width: 200px;
+      max-height: 300px;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .image{
+      object-fit: cover;
+    }
+    
+  </style>
+</head>
+<body>
+  <h1>Hello vue</h1> 
+  <div id="app">
+    <div v-if="showGames">
+      <ul>
+        <li v-for="game in filterfavGames" :class="{ fav: game.isFav }" @click="game.isFav = !game.isFav">
+          <span class="imagecontainer">
+            <img class="image" :src="game.img" :alt="game.title">
+          </span>
+          <h3>{{ game.title }}</h3>
+          <p>{{ game.comment }}</p>
+        </li>
+      </ul>
+    </div>
+
+    <button @click="toggleVisibility">{{ showGames ? "Hide Books": "Show Books" }}
+      <!-- <span v-if="showBooks">Hide Books</span>
+      <span v-else="!showBooks">Show Books</span> -->
+    </button>
+
+    <!-- <div v-show="showGames">
+      Currently showing the games
+    </div> -->
+
+    <br>
+
+
+    <!-- <button @click="rate++">Increase Rate</button>
+    <button @click="rate--">Decrease Rate</button>
+    <div @click="changeTitle('Ori Will Of The Wisps')">
+      Change title of game to "Ori Will of the Wisps"
+    </div>-->
+
+    <!-- Mouse Evenets -->
+      <!-- <div class="rectangle" @mouseover="handleEvent($event, 'aaa')">mouseenter</div>
+      <div class="rectangle" @mouseleave="handleEvent">mouseleave</div>
+      <div class="rectangle" @dblclick="handleEvent">doubleclick</div>
+      <div class="rectangle" @mousemove="logMousePosition">mousemove - Position({{ currentMousePos.x}} {{currentMousePos.y}})</div> -->
+
+
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
