@@ -4,6 +4,7 @@ const app = Vue.createApp({
     data(){
         return{
             showGames: true,
+            showFav: false,
             rate: 5,
             datagames: [
                 {
@@ -38,6 +39,9 @@ const app = Vue.createApp({
         toggleVisibility(){
             this.showGames = !this.showGames
         },
+        toggleFavVisibility(){
+            this.showFav = !this.showFav
+        },
         /* changeTitle(taken){
             this.title = taken
             console.log("Changed the title to", taken)
@@ -57,7 +61,7 @@ const app = Vue.createApp({
     
     computed: {
         filterfavGames(){
-            return this.datagames.filter((game) => game.isFav)
+            return (this.showFav) ? this.datagames.filter((game) => game.isFav) : this.datagames
         }
     }
     
